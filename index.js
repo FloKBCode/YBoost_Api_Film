@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 let films = require("./db-films");
 let helper = require("./helper");
 
@@ -6,6 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname)));
 
 // GET all films
 app.get("/api/films", (req, res) => {
